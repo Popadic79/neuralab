@@ -8,22 +8,26 @@ Neuralab Contact Form provides a lightweight, secure contact form solution for W
 
 ## Features
 
+- ✅ **AJAX Submission** - No page reload, instant feedback (NEW in v1.1.0)
+- ✅ **Admin Settings Page** - Easy access to shortcode and settings (NEW in v1.1.0)
 - ✅ **Simple Integration** - Easy to use via shortcode
 - ✅ **Spam Protection** - Honeypot field to prevent bot submissions
-- ✅ **User-Friendly** - Clean, responsive form design
+- ✅ **User-Friendly** - Clean, responsive form design with smooth animations
 - ✅ **Email Notifications** - Sends submissions to site admin
 - ✅ **Copy to User** - Optional email copy sent to the submitter
 - ✅ **Form Validation** - Server-side validation for all fields
 - ✅ **Error Handling** - User-friendly error messages
-- ✅ **Data Preservation** - Form data persists on validation errors
+- ✅ **Graceful Degradation** - Works without JavaScript enabled
 - ✅ **Security First** - Nonce verification, input sanitization, and output escaping
 - ✅ **Extensible** - Hooks and filters for customization
 - ✅ **Translatable** - Internationalization ready
 
 ## Requirements
 
-- WordPress 5.0 or higher
-- PHP 7.4 or higher
+- WordPress 5.8 or higher
+- PHP 8.2 or higher
+
+**Note:** The plugin will not activate on PHP versions below 8.2 and will display a clear error message.
 
 ## Installation
 
@@ -41,6 +45,8 @@ Simply add the shortcode to any page, post, or widget:
 ```
 [nc_form]
 ```
+
+**Quick Access:** After activation, go to **Contact Form** in the WordPress admin menu to view the shortcode and plugin settings.
 
 ### Form Fields
 
@@ -115,8 +121,10 @@ add_action( 'neuralab_cf_after_submission', function( $first_name, $last_name, $
 ```
 neuralab-contact-form/
 ├── assets/
-│   └── css/
-│       └── style.css          # Form styling
+│   ├── css/
+│   │   └── style.css          # Form styling
+│   └── js/
+│       └── form-handler.js    # AJAX form submission
 ├── neuralab-contact-form.php  # Main plugin file
 └── README.md                  # This file
 ```
@@ -164,6 +172,20 @@ The plugin uses minimal CSS. If you need custom styling:
 
 ## Changelog
 
+### Version 1.1.0 (December 9, 2024)
+- ✨ **NEW:** AJAX form submission (no page reload required)
+- ✨ **NEW:** Admin settings page in WordPress dashboard
+- ✨ **NEW:** Shortcode display in admin panel for easy copying
+- ✨ **NEW:** Admin notice on activation with quick setup link
+- ✨ **NEW:** Smooth scroll to success/error messages
+- ✨ **NEW:** Auto-hide success messages after 5 seconds
+- ✨ **NEW:** Loading state on submit button ("Sending...")
+- ✅ Improved user experience with instant feedback
+- ✅ JavaScript file for AJAX handling
+- ✅ Graceful degradation (works without JavaScript)
+- ✅ Plugin constants for version and paths
+- ✅ Enhanced admin interface with helpful information
+
 ### Version 1.0.0 (December 9, 2024)
 - ✨ Initial release
 - ✅ Contact form with 6 fields
@@ -183,15 +205,13 @@ The plugin uses minimal CSS. If you need custom styling:
 
 Planned features for future versions:
 
-### Version 1.1.0 (Planned)
-- [ ] AJAX form submission
+### Version 1.2.0 (Planned)
 - [ ] File upload support
 - [ ] Google reCAPTCHA integration
-- [ ] Admin settings page
 - [ ] Email templates
-- [ ] Form submission logging
+- [ ] Form submission logging to database
 
-### Version 1.2.0 (Planned)
+### Version 1.3.0 (Planned)
 - [ ] Multiple form support
 - [ ] Custom fields via settings
 - [ ] Export submissions to CSV
@@ -202,6 +222,7 @@ Planned features for future versions:
 - [ ] Conditional fields
 - [ ] Multi-step forms
 - [ ] Analytics and reporting
+- [ ] Dashboard widget with submission stats
 
 ## Support
 
